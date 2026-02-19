@@ -4,6 +4,24 @@ import { useMemo } from "react";
 import * as THREE from "three";
 import { useState } from "react";
 
+function LegendItem({ color, label }: { color: string; label: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <div
+        style={{
+          width: "4px",
+          height: "4px",
+          backgroundColor: color,
+          borderRadius: "1px",
+          border: color === "white" ? "1px solid #ccc" : "none"
+        }}
+      />
+      <span>{label}</span>
+    </div>
+  );
+}
+
+
 function App() {
   const [fullLight, setFullLight] = useState(false);
 
@@ -51,9 +69,9 @@ function App() {
         color: "white",
         background: "rgba(0,0,0,0.6)",
         padding: "3px",
-        borderRadius: "2px",
+        borderRadius: "1px",
         fontFamily: "sans-serif",
-        fontSize: "8px",
+        fontSize: "4px",
         display: "flex",
       }}
         >
@@ -66,6 +84,33 @@ function App() {
         {" "}Ignore night
       </label>
     </div>
+    <div
+      style={{
+        position: "absolute",
+        bottom: "8px",
+        right: "8px",
+        background: "rgba(0,0,0,0.6)",
+        padding: "1px 1px",
+        borderRadius: "2px",
+        color: "white",
+        fontSize: "4px",
+        fontFamily: "sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        gap: "2px",
+        minWidth: "4px"
+      }}
+    >
+      <div style={{ fontWeight: "bold", marginBottom: "4px" }}>
+        Weather Legend
+      </div>
+
+      <LegendItem color="#2b6cff" label="Rain" />
+      <LegendItem color="white" label="Snow" />
+      <LegendItem color="lightgrey" label="Cloudy (Transparent)" />
+      <LegendItem color="black" label="Stormy" />
+    </div>
+
 
   </>
   );

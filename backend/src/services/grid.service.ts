@@ -1,5 +1,5 @@
 export function generateGrid() {
-  const STEP = 8;
+  const STEP = 5;
   const grid = [];
 
   for (let lat = -80; lat <= 80; lat += STEP) {

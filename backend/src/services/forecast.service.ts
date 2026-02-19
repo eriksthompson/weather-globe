@@ -6,8 +6,8 @@ import { StormCell } from "../models/storm.model";
 let forecastCache: StormCell[] = [];
 
 // Adjustable tuning
-const STEP_DELAY_MS = 1000;        // delay between chunk requests
-const CHUNK_SIZE = 300;           // number of points per request
+const STEP_DELAY_MS = 5200;        // delay between chunk requests
+const CHUNK_SIZE = 50;           // number of points per request
 
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));

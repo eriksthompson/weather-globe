@@ -26,13 +26,13 @@ export default function StormSystem({ storms }: Props) {
         const position = latLonToVector3(
           storm.lat,
           storm.lon,
-          4.5 // clearly above Earth radius
+          4.2 // clearly above Earth radius
         );
 
         return (
           <mesh key={i} position={position}>
-            <sphereGeometry args={[0.5, 8, 8]} />
-            <meshBasicMaterial color="darkgray" />
+            <sphereGeometry args={[0.05, 8, 8]} />
+            <meshBasicMaterial color="black" />
           </mesh>
         );
       })}
